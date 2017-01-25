@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MenuLogPanel : MonoBehaviour {
 
-    public MenuLogPanel instance { get; private set; }
+    public static MenuLogPanel instance { get; private set; }
 
     void Awake() {
         if (instance != null)
@@ -11,5 +12,9 @@ public class MenuLogPanel : MonoBehaviour {
         else
             instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void ShowMessage(string msg) {
+        transform.GetChild(0).GetComponent<Text>().text = msg;
     }
 }
