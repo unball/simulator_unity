@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 424666}
   - 114: {fileID: 11408498}
   m_Layer: 0
-  m_Name: WebSocketInterface
+  m_Name: ROSInterface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 101744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ff824f85b3dd49a3abab8e027d0e388, type: 3}
+  m_Script: {fileID: 11500000, guid: e2dc0a98fc45741409a664f70c3bfd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000
