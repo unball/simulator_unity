@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainMenuOvermind : MonoBehaviour {
+public class ConnectionTestOvermind : MonoBehaviour {
 
     private ConnectionTest ct;
 
