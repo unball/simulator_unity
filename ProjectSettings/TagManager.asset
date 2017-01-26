@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - ArenaWalls
   - 
   - 
   - 
@@ -40,4 +40,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ArenaBack
+    uniqueID: 588688247
+    locked: 0
+  - name: ArenaMarkings
+    uniqueID: 2889477003
+    locked: 0
+  - name: ArenaWalls
+    uniqueID: 1661058753
+    locked: 0
+  - name: Ball
+    uniqueID: 2471523749
+    locked: 0
+  - name: Robots
+    uniqueID: 2733866697
+    locked: 0
+  - name: UI
+    uniqueID: 1008797055
     locked: 0
