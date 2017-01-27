@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ROSPublisher : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private WebSocket socket;
+
+    IEnumerator Start() {
+        socket = new WebSocket(new Uri("ws://localhost:9090"));
+        yield return StartCoroutine(socket.Connect());
+    }
+
+    void OnDestroy() {
+        socket.Close();
+    }
 }
