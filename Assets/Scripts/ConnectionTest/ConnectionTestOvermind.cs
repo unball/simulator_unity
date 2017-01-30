@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ConnectionTestOvermind : MonoBehaviour {
@@ -9,7 +10,7 @@ public class ConnectionTestOvermind : MonoBehaviour {
         ct = GetComponent<ConnectionTest>();
         yield return StartCoroutine(ct.TestConnection());
         if (ct.connectionSucceeded)
-            Application.LoadLevel("Simulation");
+            SceneManager.LoadScene("Simulation");
         else
             MenuLogPanel.instance.ShowMessage(ct.errorMessage +
                 " Make sure rosbridge server is running.");
