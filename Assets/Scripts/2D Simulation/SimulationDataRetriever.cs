@@ -1,25 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SimulationDataRetriever : MonoBehaviour {
 
 	public static SimulationDataRetriever instance { get; set; }
 
     public int alliedRobotAmount = 3;
-    public int opponentRobotAmount = 3;
-    public string allySide = "Left";
+    public int enemyRobotAmount = 3;
 
     public int GetAlliedRobotAmount() {
         return alliedRobotAmount;
     }
 
     public int GetOpponentRobotAmount() {
-        return opponentRobotAmount;
-    }
-
-    public string GetAllySide() {
-        return allySide;
+        return enemyRobotAmount;
     }
 
     void Awake() {

@@ -14,12 +14,12 @@ static public class RobotColorPicker {
 
     static private Color[] idColors = new Color[] { Color.red, Color.green, Color.magenta };
 
-    static RobotColor BlueTeam(int id) {
+    static public RobotColor BlueTeam(int id) {
         var teamColor = Color.blue;
         return new RobotColor(teamColor, idColors[id]);
     }
 
-    static RobotColor YellowTeam(int id) {
+    static public RobotColor YellowTeam(int id) {
         var teamColor = Color.yellow;
         return new RobotColor(teamColor, idColors[id]);
     }
