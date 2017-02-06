@@ -27,7 +27,7 @@ public class RobotPauseUI : MonoBehaviour {
     private void CheckInput() {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0)) {
-            isClicked = robotBody.GetComponent<BoxCollider2D>().OverlapPoint(mousePosition);
+            isClicked = robotBody.GetComponent<Collider2D>().OverlapPoint(mousePosition);
             mouseOffset = mousePosition - (Vector2)robotBody.transform.position;
         }
         if (Input.GetMouseButtonUp(0))
