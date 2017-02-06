@@ -20,7 +20,7 @@ public class RobotVelocityControl : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        ApplyLinearVelocity(linearVelocity);
-        ApplyAngularVelocity(angularVelocity);
+        ApplyLinearVelocity(Pause.instance.isPaused ? 0 : linearVelocity);
+        ApplyAngularVelocity(Pause.instance.isPaused ? 0 : angularVelocity);
     }
 }
