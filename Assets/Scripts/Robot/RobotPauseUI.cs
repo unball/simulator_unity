@@ -3,6 +3,7 @@
 public class RobotPauseUI : MonoBehaviour {
 
     public GameObject robotBody;
+    public GameObject RotationArrow;
 
     private bool isClicked;
     private Vector2 mouseOffset;
@@ -17,11 +18,11 @@ public class RobotPauseUI : MonoBehaviour {
     }
 
     private void ShowMovementUI() {
-        // Stuff here
+        RotationArrow.SetActive(true);
     }
 
     private void HideMovementUI() {
-        // Stuff here
+        RotationArrow.SetActive(false);
     }
 
     private void CheckInput() {
