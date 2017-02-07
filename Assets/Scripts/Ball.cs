@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour {
     void Update() {
         if (Pause.instance.isPaused) {
             CheckInput();
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
 

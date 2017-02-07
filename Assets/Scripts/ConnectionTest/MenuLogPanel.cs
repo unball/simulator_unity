@@ -11,7 +11,6 @@ public class MenuLogPanel : MonoBehaviour {
             Debug.LogError("[MenuLogPanel]Awake: Instance already exists");
         else
             instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void ShowMessage(string msg) {
