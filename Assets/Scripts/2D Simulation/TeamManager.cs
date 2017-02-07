@@ -31,6 +31,7 @@ public class TeamManager : MonoBehaviour {
         newRobot.transform.parent = transform;
         newRobot.transform.position = initialPosition[robotId];
         newRobot.GetComponent<RobotColorApplier>().ApplyColor(robotColor);
+        newRobot.transform.GetChild(0).GetComponent<RobotLookAtPoint>().LookAt(Ball.instance.transform.position);
         robotList.Add(newRobot.transform);
         robotBodyList.Add(newRobot.transform.GetChild(0));
     }

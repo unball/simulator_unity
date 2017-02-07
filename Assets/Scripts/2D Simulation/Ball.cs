@@ -2,8 +2,16 @@
 
 public class Ball : MonoBehaviour {
 
+    static public Ball instance { get; private set; }
+
     private bool isClicked;
     private Vector2 mouseOffset;
+
+    void Awake() {
+        if (instance)
+            Debug.LogError("[Ball]Awake: Multiple instances of singleton");
+        instance = this;
+    }
 
     void Update() {
         if (Pause.instance.isPaused) {
