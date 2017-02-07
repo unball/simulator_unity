@@ -25,7 +25,7 @@ public class Pause : MonoBehaviour {
             instance = this;
         else
             Debug.LogError("[Pause]Awake: multiple instances of singleton");
-        isPaused = false;
+        isPaused = true;
     }
 
     private void PublishKeyboardMessage(char key) {
