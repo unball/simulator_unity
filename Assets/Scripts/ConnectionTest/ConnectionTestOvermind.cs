@@ -6,6 +6,11 @@ public class ConnectionTestOvermind : MonoBehaviour {
 
     private ConnectionTest ct;
 
+    public void RetryConnection() {
+        MenuLogPanel.instance.ShowMessage("Reconnecting...");
+        StartCoroutine(Start());
+    }
+
     IEnumerator Start() {
         ct = GetComponent<ConnectionTest>();
         yield return StartCoroutine(ct.TestConnection());
