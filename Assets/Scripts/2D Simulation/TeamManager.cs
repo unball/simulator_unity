@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TeamManager : MonoBehaviour {
@@ -7,7 +8,12 @@ public class TeamManager : MonoBehaviour {
     public bool isAlly = true;
     public Vector2[] initialPosition;
 
+    public List<Transform> robotList { get; private set; }
+    public List<Transform> robotBodyList { get; private set; }
+
     void Start() {
+        robotList = new List<Transform>();
+        robotBodyList = new List<Transform>();
         if (isAlly)
             GenerateRobots(SimulationDataRetriever.instance.alliedRobotAmount, RobotColorPicker.BlueTeam);
         else
@@ -25,5 +31,7 @@ public class TeamManager : MonoBehaviour {
         newRobot.transform.parent = transform;
         newRobot.transform.position = initialPosition[robotId];
         newRobot.GetComponent<RobotColorApplier>().ApplyColor(robotColor);
+        robotList.Add(newRobot.transform);
+        robotBodyList.Add(newRobot.transform.GetChild(0));
     }
 }

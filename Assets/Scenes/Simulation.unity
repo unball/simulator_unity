@@ -357,6 +357,64 @@ MonoBehaviour:
   - {x: 1.96, y: 1.96}
   - {x: 2.86, y: 0}
   - {x: 1.96, y: -1.96}
+--- !u!1 &1090146389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1090146391}
+  - component: {fileID: 1090146390}
+  - component: {fileID: 1090146392}
+  m_Layer: 0
+  m_Name: MeasurementSystemPublisher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1090146390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1090146389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761fad7829f494fd699a404d8d39a32a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topic: measurement_system_topic
+  messageType: unball/MeasurementSystemMessage
+--- !u!4 &1090146391
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1090146389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1090146392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1090146389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe06b4e079d774e3fbd2ca75cee03af9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  publisher: {fileID: 1090146390}
+  ball: {fileID: 2089380630}
+  alliedTeam: {fileID: 796206501}
+  enemyTeam: {fileID: 980987834}
 --- !u!1 &1108737889
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,3 +973,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8eec667c38b20794c952d9f771118440, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2089380630 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1314155346236988, guid: 8eec667c38b20794c952d9f771118440,
+    type: 2}
+  m_PrefabInternal: {fileID: 2089380629}
