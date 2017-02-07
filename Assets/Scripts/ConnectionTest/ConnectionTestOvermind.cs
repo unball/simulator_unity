@@ -15,7 +15,7 @@ public class ConnectionTestOvermind : MonoBehaviour {
         ct = GetComponent<ConnectionTest>();
         yield return StartCoroutine(ct.TestConnection());
         if (ct.connectionSucceeded)
-            SceneManager.LoadScene("Simulation");
+            SceneManager.LoadScene("MainMenu");
         else
             MenuLogPanel.instance.ShowMessage(ct.errorMessage +
                 " Make sure rosbridge server is running.");

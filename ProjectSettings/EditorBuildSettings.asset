@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ConnectionTestScreen.unity
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
     path: Assets/Scenes/Simulation.unity

@@ -26,11 +26,11 @@ public class MeasurementSystem : MonoBehaviour {
     private JSONObject MakeXPosArray() {
         JSONObject robotXposArray = new JSONObject(JSONObject.Type.ARRAY);
         int i;
-        for (i = 0; i < SimulationDataRetriever.instance.GetAlliedRobotAmount(); ++i)
+        for (i = 0; i < SimulationDataRetriever.instance.alliedRobotAmount; ++i)
             robotXposArray.Add(alliedTeam.robotBodyList[i].position.x * 0.1f);
         for (; i < 3; ++i)
             robotXposArray.Add(0f);
-        for (i = 0; i < SimulationDataRetriever.instance.GetOpponentRobotAmount(); ++i)
+        for (i = 0; i < SimulationDataRetriever.instance.enemyRobotAmount; ++i)
             robotXposArray.Add(enemyTeam.robotBodyList[i].position.x * 0.1f);
         for (; i < 3; ++i)
             robotXposArray.Add(0f);
@@ -40,11 +40,11 @@ public class MeasurementSystem : MonoBehaviour {
     private JSONObject MakeYPosArray() {
         JSONObject robotYposArray = new JSONObject(JSONObject.Type.ARRAY);
         int i;
-        for (i = 0; i < SimulationDataRetriever.instance.GetAlliedRobotAmount(); ++i)
+        for (i = 0; i < SimulationDataRetriever.instance.alliedRobotAmount; ++i)
             robotYposArray.Add(alliedTeam.robotBodyList[i].position.y * 0.1f);
         for (; i < 3; ++i)
             robotYposArray.Add(0f);
-        for (i = 0; i < SimulationDataRetriever.instance.GetOpponentRobotAmount(); ++i)
+        for (i = 0; i < SimulationDataRetriever.instance.enemyRobotAmount; ++i)
             robotYposArray.Add(enemyTeam.robotBodyList[i].position.y * 0.1f);
         for (; i < 3; ++i)
             robotYposArray.Add(0f);
@@ -54,11 +54,11 @@ public class MeasurementSystem : MonoBehaviour {
     private JSONObject MakeThetaArray() {
         JSONObject robotThetaArray = new JSONObject(JSONObject.Type.ARRAY);
         int i;
-        for (i = 0; i < SimulationDataRetriever.instance.GetAlliedRobotAmount(); ++i)
+        for (i = 0; i < SimulationDataRetriever.instance.alliedRobotAmount; ++i)
             robotThetaArray.Add(alliedTeam.robotBodyList[i].rotation.eulerAngles.z);
         for (; i < 3; ++i)
             robotThetaArray.Add(0f);
-        for (i = 0; i < SimulationDataRetriever.instance.GetOpponentRobotAmount(); ++i)
+        for (i = 0; i < SimulationDataRetriever.instance.enemyRobotAmount; ++i)
             robotThetaArray.Add(enemyTeam.robotBodyList[i].rotation.eulerAngles.z);
         for (; i < 3; ++i)
             robotThetaArray.Add(0f);

@@ -4,21 +4,15 @@ public class SimulationDataRetriever : MonoBehaviour {
 
 	public static SimulationDataRetriever instance { get; set; }
 
-    public int alliedRobotAmount = 3;
-    public int enemyRobotAmount = 3;
-
-    public int GetAlliedRobotAmount() {
-        return alliedRobotAmount;
-    }
-
-    public int GetOpponentRobotAmount() {
-        return enemyRobotAmount;
-    }
+    public int alliedRobotAmount { get; private set; }
+    public int enemyRobotAmount { get; private set; }
 
     void Awake() {
         if (instance == null)
             instance = this;
         else
             Debug.LogError("[SimulationDataRetriever]Awake: multiple instances of singleton");
+        alliedRobotAmount = PlayerPrefs.GetInt("AlliedRobotAmount");
+        enemyRobotAmount = PlayerPrefs.GetInt("EnemyRobotAmount");
     }
 }
