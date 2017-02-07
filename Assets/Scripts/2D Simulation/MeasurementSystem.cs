@@ -13,34 +13,55 @@ public class MeasurementSystem : MonoBehaviour {
         if (Time.timeSinceLevelLoad < 0.5f)
             return;
         JSONObject measurementMessage = new JSONObject(JSONObject.Type.OBJECT);
-        JSONObject robotXposArray = new JSONObject(JSONObject.Type.ARRAY);
-        robotXposArray.Add(alliedTeam.robotBodyList[0].position.x * 0.1f);
-        robotXposArray.Add(alliedTeam.robotBodyList[1].position.x * 0.1f);
-        robotXposArray.Add(alliedTeam.robotBodyList[2].position.x * 0.1f);
-        robotXposArray.Add(enemyTeam.robotBodyList[0].position.x * 0.1f);
-        robotXposArray.Add(enemyTeam.robotBodyList[1].position.x * 0.1f);
-        robotXposArray.Add(enemyTeam.robotBodyList[2].position.x * 0.1f);
-        JSONObject robotYposArray = new JSONObject(JSONObject.Type.ARRAY);
-        robotYposArray.Add(alliedTeam.robotBodyList[0].position.y * 0.1f);
-        robotYposArray.Add(alliedTeam.robotBodyList[1].position.y * 0.1f);
-        robotYposArray.Add(alliedTeam.robotBodyList[2].position.y * 0.1f);
-        robotYposArray.Add(enemyTeam.robotBodyList[0].position.y * 0.1f);
-        robotYposArray.Add(enemyTeam.robotBodyList[1].position.y * 0.1f);
-        robotYposArray.Add(enemyTeam.robotBodyList[2].position.y * 0.1f);
-        JSONObject robotThetaArray = new JSONObject(JSONObject.Type.ARRAY);
-        robotThetaArray.Add(alliedTeam.robotBodyList[0].rotation.eulerAngles.z);
-        robotThetaArray.Add(alliedTeam.robotBodyList[1].rotation.eulerAngles.z);
-        robotThetaArray.Add(alliedTeam.robotBodyList[2].rotation.eulerAngles.z);
-        robotThetaArray.Add(enemyTeam.robotBodyList[0].rotation.eulerAngles.z);
-        robotThetaArray.Add(enemyTeam.robotBodyList[1].rotation.eulerAngles.z);
-        robotThetaArray.Add(enemyTeam.robotBodyList[2].rotation.eulerAngles.z);
-        measurementMessage.AddField("x", robotXposArray);
-        measurementMessage.AddField("y", robotYposArray);
-        measurementMessage.AddField("th", robotThetaArray);
+        measurementMessage.AddField("x", MakeXPosArray());
+        measurementMessage.AddField("y", MakeYPosArray());
+        measurementMessage.AddField("th", MakeThetaArray());
         measurementMessage.AddField("ball_x", ball.transform.position.x * 0.1f);
         measurementMessage.AddField("ball_y", ball.transform.position.y * 0.1f);
         publisher.PublishMessage(measurementMessage);
         if (publisher.error != null)
             Debug.LogError(publisher.error);
+    }
+
+    private JSONObject MakeXPosArray() {
+        JSONObject robotXposArray = new JSONObject(JSONObject.Type.ARRAY);
+        int i;
+        for (i = 0; i < SimulationDataRetriever.instance.GetAlliedRobotAmount(); ++i)
+            robotXposArray.Add(alliedTeam.robotBodyList[i].position.x * 0.1f);
+        for (; i < 3; ++i)
+            robotXposArray.Add(0f);
+        for (i = 0; i < SimulationDataRetriever.instance.GetOpponentRobotAmount(); ++i)
+            robotXposArray.Add(enemyTeam.robotBodyList[i].position.x * 0.1f);
+        for (; i < 3; ++i)
+            robotXposArray.Add(0f);
+        return robotXposArray;
+    }
+
+    private JSONObject MakeYPosArray() {
+        JSONObject robotYposArray = new JSONObject(JSONObject.Type.ARRAY);
+        int i;
+        for (i = 0; i < SimulationDataRetriever.instance.GetAlliedRobotAmount(); ++i)
+            robotYposArray.Add(alliedTeam.robotBodyList[i].position.y * 0.1f);
+        for (; i < 3; ++i)
+            robotYposArray.Add(0f);
+        for (i = 0; i < SimulationDataRetriever.instance.GetOpponentRobotAmount(); ++i)
+            robotYposArray.Add(enemyTeam.robotBodyList[i].position.y * 0.1f);
+        for (; i < 3; ++i)
+            robotYposArray.Add(0f);
+        return robotYposArray;
+    }
+
+    private JSONObject MakeThetaArray() {
+        JSONObject robotThetaArray = new JSONObject(JSONObject.Type.ARRAY);
+        int i;
+        for (i = 0; i < SimulationDataRetriever.instance.GetAlliedRobotAmount(); ++i)
+            robotThetaArray.Add(alliedTeam.robotBodyList[i].rotation.eulerAngles.z);
+        for (; i < 3; ++i)
+            robotThetaArray.Add(0f);
+        for (i = 0; i < SimulationDataRetriever.instance.GetOpponentRobotAmount(); ++i)
+            robotThetaArray.Add(enemyTeam.robotBodyList[i].rotation.eulerAngles.z);
+        for (; i < 3; ++i)
+            robotThetaArray.Add(0f);
+        return robotThetaArray;
     }
 }
