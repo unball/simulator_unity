@@ -1,13 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-public class StrategyMessageSubscriber : MonoBehaviour {
+public class AlliedTeamControl : MonoBehaviour {
 
-    public ROSSubscriber subscriber;
-    public TeamManager alliedTeam;
-    public TeamManager enemyTeam;
+    private ROSSubscriber subscriber;
+    private TeamManager alliedTeam;
 
     void Start() {
+        alliedTeam = GetComponent<TeamManager>();
+        subscriber = GetComponent<ROSSubscriber>();
         subscriber.callback = ReceiveMessage;
     }
 
@@ -21,12 +22,6 @@ public class StrategyMessageSubscriber : MonoBehaviour {
                 linearVelocity = lin_vel_arr[i].n * 10f;
             alliedTeam.robotBodyList[i].GetComponent<RobotVelocityControl>().
                 angularVelocity = ang_vel_arr[i].n;
-        }
-        for (int i = 0; i < SimulationDataRetriever.instance.enemyRobotAmount; ++i) {
-            enemyTeam.robotBodyList[i].GetComponent<RobotVelocityControl>().
-                linearVelocity = lin_vel_arr[i+3].n * 10f;
-            enemyTeam.robotBodyList[i].GetComponent<RobotVelocityControl>().
-                angularVelocity = ang_vel_arr[i+3].n;
         }
     }
 }
