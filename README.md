@@ -22,6 +22,8 @@ Pausing and resuming the simulation publishes a message of type "unball/Keyboard
 
 The robots can be controlled by an external application through ROS, by publishing messages of type "communication/robots_speeds_msg", on the topic "robots_speeds". The message file can be viewed [here](https://github.com/unball/communication/blob/master/msg/robots_speeds_msg.msg).
 
+All measurements are received and transmitted according to the [International System of Units](https://en.wikipedia.org/wiki/International_System_of_Units).
+
 ## Measurement conventions
 
 1 Unity unit = 0.1 metres = 100 pixels
