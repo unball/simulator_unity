@@ -299,8 +299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a72abf21bb64572965cc3a104c8543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: strategy_topic
-  messageType: unball/StrategyMessage
+  topic: robots_speeds
+  messageType: communication/robots_speeds_msg
 --- !u!1 &796206499
 GameObject:
   m_ObjectHideFlags: 0

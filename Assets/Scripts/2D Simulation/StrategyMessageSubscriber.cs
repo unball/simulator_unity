@@ -14,8 +14,8 @@ public class StrategyMessageSubscriber : MonoBehaviour {
     private void ReceiveMessage(string message) {
         JSONObject msgJson = new JSONObject(message);
         JSONObject vels = new JSONObject(msgJson["msg"].Print());
-        JSONObject lin_vel_arr = vels["lin_vel"];
-        JSONObject ang_vel_arr = vels["ang_vel"];
+        JSONObject lin_vel_arr = vels["linear_vel"];
+        JSONObject ang_vel_arr = vels["angular_vel"];
         for (int i = 0; i < SimulationDataRetriever.instance.alliedRobotAmount; ++i) {
             alliedTeam.robotBodyList[i].GetComponent<RobotVelocityControl>().
                 linearVelocity = lin_vel_arr[i].n * 10f;
