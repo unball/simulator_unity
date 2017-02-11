@@ -20,7 +20,7 @@ All robot positions and their orientations, and the ball position are published 
 
 Pausing and resuming the simulation publishes a message of type "unball/KeyboardMessage", on the topic "keyboard_topic". Pausing will send the char 'p' and resuming will sand the message 'r'. The message file can be viewed [here](https://github.com/unball/ieee-very-small/blob/master/software/msg/KeyboardMessage.msg).
 
-The robots can be controlled by an external application through ROS, by publishing messages of type "unball/StrategyMessage", on the topic "strategy_topic". The message file can be viewed [here](https://github.com/unball/ieee-very-small/blob/master/software/msg/StrategyMessage.msg).
+The robots can be controlled by an external application through ROS, by publishing messages of type "communication/robots_speeds_msg", on the topic "robots_speeds". The message file can be viewed [here](https://github.com/unball/communication/blob/master/msg/robots_speeds_msg.msg).
 
 ## Measurement conventions
 
