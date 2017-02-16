@@ -255,7 +255,6 @@ GameObject:
   - component: {fileID: 796206501}
   - component: {fileID: 796206503}
   - component: {fileID: 796206502}
-  - component: {fileID: 796206504}
   m_Layer: 0
   m_Name: Allied Robots
   m_TagString: Untagged
@@ -315,17 +314,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c21b83f493ec14155b16b4e3fbe1c8fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &796206504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 796206499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 525f97658e6f14787a7924ba80aad616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &895315742
@@ -433,6 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 980987833}
   - component: {fileID: 980987834}
+  - component: {fileID: 980987835}
   m_Layer: 0
   m_Name: Enemy Robots
   m_TagString: Untagged
@@ -470,6 +459,17 @@ MonoBehaviour:
   - {x: 1.96, y: 1.96}
   - {x: 2.86, y: 0}
   - {x: 1.96, y: -1.96}
+--- !u!114 &980987835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 980987832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d34d9cdb775d4c8cb1a38d414df278a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1090146389
 GameObject:
   m_ObjectHideFlags: 0

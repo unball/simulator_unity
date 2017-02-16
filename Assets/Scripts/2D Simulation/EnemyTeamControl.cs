@@ -1,13 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-public class OfflineTeamControl : MonoBehaviour {
+public class EnemyTeamControl : MonoBehaviour {
 
     private TeamManager alliedTeam;
 
     void Start() {
-        if (ConnectionMode.IsOnline())
-            this.enabled = false;
         alliedTeam = GetComponent<TeamManager>();
     }
 
@@ -46,17 +44,4 @@ public class OfflineTeamControl : MonoBehaviour {
     private int GetKey(KeyCode key) {
         return Input.GetKey(key) ? 1 : 0;
     }
-
-    // private void ReceiveMessage(string message) {
-    //     JSONObject msgJson = new JSONObject(message);
-    //     JSONObject vels = new JSONObject(msgJson["msg"].Print());
-    //     JSONObject lin_vel_arr = vels["linear_vel"];
-    //     JSONObject ang_vel_arr = vels["angular_vel"];
-    //     for (int i = 0; i < SimulationDataRetriever.instance.alliedRobotAmount; ++i) {
-    //         alliedTeam.robotBodyList[i].GetComponent<RobotVelocityControl>().
-    //             linearVelocity = lin_vel_arr[i].n * 10f;
-    //         alliedTeam.robotBodyList[i].GetComponent<RobotVelocityControl>().
-    //             angularVelocity = ang_vel_arr[i].n;
-    //     }
-    // }
 }
