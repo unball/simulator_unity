@@ -11,11 +11,18 @@ public class ConnectionTestOvermind : MonoBehaviour {
         StartCoroutine(Start());
     }
 
+    public void StartInOfflineMode() {
+        ConnectionMode.SetOfflineMode();
+        SceneManager.LoadScene("MainMenu");
+    }
+
     IEnumerator Start() {
         ct = GetComponent<ConnectionTest>();
         yield return StartCoroutine(ct.TestConnection());
-        if (ct.connectionSucceeded)
+        if (ct.connectionSucceeded) {
+            ConnectionMode.SetOnlineMode();
             SceneManager.LoadScene("MainMenu");
+        }
         else
             MenuLogPanel.instance.ShowMessage(ct.errorMessage +
                 " Make sure rosbridge server is running.");
