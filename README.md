@@ -2,13 +2,17 @@
 
 Simulator for the IEEE Very Small Size Soccer competition. Developed in Unity and integrated with the ROS environment using the rosbridge suite.
 
+The simulator uses two asset store packages, [JSON Object](https://www.assetstore.unity3d.com/en/#!/content/710) and [Simple Web Sockets for Unity WebGL](https://www.assetstore.unity3d.com/en/#!/content/38367).
+
+Note: This simulator was developed and tested using ROS Kinetic. Previous versions of ROS are not supported.
+
 ## Running the simulator
 
 Before running the simulator, it is necessary to have [ROS](http://wiki.ros.org/ROS/Installation) and the [rosbridge suite](http://wiki.ros.org/rosbridge_suite) installed, as well as the latest simulator build, which can be found [here](https://drive.google.com/drive/folders/0BwlvQGynHcxZZlJTcWZUazNqT00?usp=sharing). Alternatively, the simulator code can be downloaded and built using the [Unity Engine](https://store.unity.com/). 
 
-To run the simulator, open a terminal window and start roscore (with the `roscore` command). On a new terminal window, start the rosbridge server:
+To run the simulator just paste the following command on a terminal window:
 
-    rosrun rosbridge_server rosbridge_websocket
+    roslaunch rosbridge_server rosbridge_websocket.launch
 
 After that, just run the simulator executable.
 
