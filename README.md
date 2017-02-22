@@ -18,7 +18,7 @@ Running the simulator before starting the rosbridge server is not a problem, but
 
 All robot positions and their orientations, and the ball position are published on a single ROS message of type "unball/MeasurementSystemMessage", on the topic "measurement_system_topic". The message file can be viewed [here](https://github.com/unball/ieee-very-small/blob/master/software/msg/MeasurementSystemMessage.msg).
 
-Pausing and resuming the simulation publishes a message of type "unball/KeyboardMessage", on the topic "keyboard_topic". Pausing will send the char 'p' and resuming will sand the message 'r'. The message file can be viewed [here](https://github.com/unball/ieee-very-small/blob/master/software/msg/KeyboardMessage.msg).
+Pausing and resuming the simulation publishes a message of type "unball/KeyboardMessage", on the topic "keyboard_topic". Pausing will send the char 'p' and resuming will send the message 'r'. The message file can be viewed [here](https://github.com/unball/ieee-very-small/blob/master/software/msg/KeyboardMessage.msg).
 
 The robots can be controlled by an external application through ROS, by publishing messages of type "communication/robots_speeds_msg", on the topic "robots_speeds". The message file can be viewed [here](https://github.com/unball/communication/blob/master/msg/robots_speeds_msg.msg).
 
