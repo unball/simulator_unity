@@ -55,11 +55,11 @@ public class MeasurementSystem : MonoBehaviour {
         JSONObject robotThetaArray = new JSONObject(JSONObject.Type.ARRAY);
         int i;
         for (i = 0; i < SimulationDataRetriever.instance.alliedRobotAmount; ++i)
-            robotThetaArray.Add(alliedTeam.robotBodyList[i].rotation.eulerAngles.z);
+            robotThetaArray.Add(alliedTeam.robotBodyList[i].rotation.eulerAngles.z * Mathf.Deg2Rad);
         for (; i < 3; ++i)
             robotThetaArray.Add(0f);
         for (i = 0; i < SimulationDataRetriever.instance.enemyRobotAmount; ++i)
-            robotThetaArray.Add(enemyTeam.robotBodyList[i].rotation.eulerAngles.z);
+            robotThetaArray.Add(enemyTeam.robotBodyList[i].rotation.eulerAngles.z * Mathf.Deg2Rad);
         for (; i < 3; ++i)
             robotThetaArray.Add(0f);
         return robotThetaArray;

@@ -21,7 +21,7 @@ public class AlliedTeamControl : MonoBehaviour {
             alliedTeam.robotBodyList[i].GetComponent<RobotVelocityControl>().
                 linearVelocity = lin_vel_arr[i].n * 10f;
             alliedTeam.robotBodyList[i].GetComponent<RobotVelocityControl>().
-                angularVelocity = ang_vel_arr[i].n;
+                angularVelocity = ang_vel_arr[i].n * Mathf.Rad2Deg;
         }
     }
 }
