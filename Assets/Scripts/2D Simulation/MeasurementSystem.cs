@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class MeasurementSystem : MonoBehaviour {
 
-    public ROSPublisher publisher;
-    public GameObject ball;
     public TeamManager alliedTeam;
     public TeamManager enemyTeam;
+
+    private ROSPublisher publisher;
+
+    void Start() {
+        if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI) {
+            this.enabled = false;
+        }
+        else {
+            publisher = GetComponent<ROSPublisher>();
+        }
+    }
 
     void FixedUpdate () {
         if (Time.timeSinceLevelLoad < 0.5f)
@@ -16,8 +25,8 @@ public class MeasurementSystem : MonoBehaviour {
         measurementMessage.AddField("x", MakeXPosArray());
         measurementMessage.AddField("y", MakeYPosArray());
         measurementMessage.AddField("th", MakeThetaArray());
-        measurementMessage.AddField("ball_x", ball.transform.position.x * 0.1f);
-        measurementMessage.AddField("ball_y", ball.transform.position.y * 0.1f);
+        measurementMessage.AddField("ball_x", Ball.instance.transform.position.x * 0.1f);
+        measurementMessage.AddField("ball_y", Ball.instance.transform.position.y * 0.1f);
         publisher.PublishMessage(measurementMessage);
         if (publisher.error != null)
             Debug.LogError(publisher.error);

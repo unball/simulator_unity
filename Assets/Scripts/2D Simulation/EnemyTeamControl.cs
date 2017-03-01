@@ -3,21 +3,21 @@ using UnityEngine;
 
 public class EnemyTeamControl : MonoBehaviour {
 
-    private TeamManager alliedTeam;
+    private TeamManager enemyTeam;
 
     void Start() {
-        alliedTeam = GetComponent<TeamManager>();
+        enemyTeam = GetComponent<TeamManager>();
     }
 
     void FixedUpdate() {
-        for (int i = 0; i < SimulationDataRetriever.instance.alliedRobotAmount; ++i)
+        for (int i = 0; i < SimulationDataRetriever.instance.enemyRobotAmount; ++i)
             UpdateRobotSpeeds(i);
     }
 
     private void UpdateRobotSpeeds(int robotId) {
-        alliedTeam.robotBodyList[robotId].GetComponent<RobotVelocityControl>().
+        enemyTeam.robotBodyList[robotId].GetComponent<RobotVelocityControl>().
             linearVelocity = VerticalAxis(robotId) * 2.5f;
-        alliedTeam.robotBodyList[robotId].GetComponent<RobotVelocityControl>().
+        enemyTeam.robotBodyList[robotId].GetComponent<RobotVelocityControl>().
             angularVelocity = HorizontalAxis(robotId) * 100f;
     }
 

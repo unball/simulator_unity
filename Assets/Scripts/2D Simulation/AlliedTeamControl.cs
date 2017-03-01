@@ -7,6 +7,8 @@ public class AlliedTeamControl : MonoBehaviour {
     private TeamManager alliedTeam;
 
     void Start() {
+        if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI)
+            this.enabled = false;
         alliedTeam = GetComponent<TeamManager>();
         subscriber = GetComponent<ROSSubscriber>();
         subscriber.callback = ReceiveMessage;

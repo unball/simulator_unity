@@ -7,7 +7,11 @@ public class RobotVelocityControl : MonoBehaviour {
 
     private Rigidbody2D rigidBody;
 
-    void Awake() {
+    void Start() {
+        if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI) {
+            this.enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+        }
         rigidBody = GetComponent<Rigidbody2D>();
     }
 

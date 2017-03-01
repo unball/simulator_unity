@@ -8,6 +8,11 @@ public class RobotPauseUI : MonoBehaviour {
     private bool isClicked;
     private Vector2 mouseOffset;
 
+    void Start() {
+        if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI)
+            gameObject.SetActive(false);
+    }
+
 	void Update() {
         if (Pause.instance.isPaused) {
             ShowMovementUI();
