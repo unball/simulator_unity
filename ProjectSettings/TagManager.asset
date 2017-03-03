@@ -56,6 +56,9 @@ TagManager:
   - name: Robots
     uniqueID: 2733866697
     locked: 0
+  - name: ObjectiveMarks
+    uniqueID: 70997711
+    locked: 0
   - name: UI
     uniqueID: 1008797055
     locked: 0
