@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 209379123}
   - component: {fileID: 209379122}
   - component: {fileID: 209379121}
+  - component: {fileID: 209379124}
   m_Layer: 5
   m_Name: Opponent Dropdown
   m_TagString: Untagged
@@ -436,6 +437,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 209379119}
+--- !u!114 &209379124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209379119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331819ab219314d41941cad5df12baeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefsKey: OpponentDropdown
 --- !u!1 &294424150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,6 +1870,7 @@ GameObject:
   - component: {fileID: 1245113813}
   - component: {fileID: 1245113812}
   - component: {fileID: 1245113811}
+  - component: {fileID: 1245113814}
   m_Layer: 5
   m_Name: Ally Dropdown
   m_TagString: Untagged
@@ -1975,6 +1989,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245113809}
+--- !u!114 &1245113814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1245113809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331819ab219314d41941cad5df12baeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefsKey: AllyDropdown
 --- !u!1 &1375811288
 GameObject:
   m_ObjectHideFlags: 0
