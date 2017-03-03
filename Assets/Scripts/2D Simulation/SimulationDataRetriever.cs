@@ -21,8 +21,14 @@ public class SimulationDataRetriever : MonoBehaviour {
     }
 
     private void LoadRobotAmount() {
-        alliedRobotAmount = PlayerPrefs.GetInt("AlliedRobotAmount");
-        enemyRobotAmount = PlayerPrefs.GetInt("EnemyRobotAmount");
+        if (PlayerPrefs.HasKey("AlliedRobotAmount"))
+            alliedRobotAmount = PlayerPrefs.GetInt("AlliedRobotAmount");
+        else
+            alliedRobotAmount = 3;
+        if(PlayerPrefs.HasKey("EnemyRobotAmount"))
+            enemyRobotAmount = PlayerPrefs.GetInt("EnemyRobotAmount");
+        else
+            enemyRobotAmount = 3;
     }
 
     private void LoadSimulationMode() {
