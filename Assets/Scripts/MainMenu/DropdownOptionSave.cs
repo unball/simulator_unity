@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class DropdownOptionSave : MonoBehaviour {
 
+    public int defaultValue;
     public string playerPrefsKey;
 
     private Dropdown dropdown;
@@ -12,7 +13,7 @@ public class DropdownOptionSave : MonoBehaviour {
         if (PlayerPrefs.HasKey(playerPrefsKey))
             dropdown.value = PlayerPrefs.GetInt(playerPrefsKey);
         else
-            dropdown.value = 3;
+            dropdown.value = defaultValue;
 	}
 
     void OnDestroy() {
