@@ -14,10 +14,28 @@ public class TeamManager : MonoBehaviour {
     void Start() {
         robotList = new List<Transform>();
         robotBodyList = new List<Transform>();
-        if (isAlly)
-            GenerateRobots(SimulationDataRetriever.instance.alliedRobotAmount, RobotColorPicker.BlueTeam);
-        else
-            GenerateRobots(SimulationDataRetriever.instance.enemyRobotAmount, RobotColorPicker.YellowTeam);
+        GenerateRobots(CalculateRobotAmount(), CalculateColorMethodToUse());
+    }
+
+    private Func<int, RobotColor> CalculateColorMethodToUse() {
+        string alliedColor = PlayerPrefs.GetString("AlliedTeamColor");
+        if (isAlly) {
+            if (alliedColor == "Yellow")
+                return RobotColorPicker.YellowTeam;
+            else
+                return RobotColorPicker.BlueTeam;
+        }
+        else {
+            if (alliedColor == "Yellow")
+                return RobotColorPicker.BlueTeam;
+            else
+                return RobotColorPicker.YellowTeam;
+        }
+    }
+
+    private int CalculateRobotAmount() {
+        return isAlly ? SimulationDataRetriever.instance.alliedRobotAmount :
+                        SimulationDataRetriever.instance.enemyRobotAmount;
     }
 
     private void GenerateRobots(int robotAmount, Func<int, RobotColor> getColorMethod) {
