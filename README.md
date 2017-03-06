@@ -26,6 +26,8 @@ Pausing and resuming the simulation publishes a message of type "unball/Keyboard
 
 The robots can be controlled by an external application through ROS, by publishing messages of type "communication/robots_speeds_msg", on the topic "robots_speeds". The message file can be viewed [here](https://github.com/unball/communication/blob/master/msg/robots_speeds_msg.msg).
 
+The allied field side can be changed via a dropdown in the simulation scene. The field side is published to the topic "field_side_topic" as a message of type "std_msgs/String", as described [here](http://wiki.ros.org/msg#Message_Description_Specification). The strings sent are "Right" and "Left". 
+
 All measurements are received and transmitted according to the [International System of Units](https://en.wikipedia.org/wiki/International_System_of_Units).
 
 ## Measurement conventions
