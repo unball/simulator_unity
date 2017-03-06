@@ -2124,6 +2124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alliedTeam: {fileID: 796206501}
+  enemyTeam: {fileID: 980987834}
 --- !u!114 &1424169355
 MonoBehaviour:
   m_ObjectHideFlags: 0

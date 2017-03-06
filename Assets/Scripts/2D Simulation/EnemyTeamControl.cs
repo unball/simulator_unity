@@ -7,6 +7,8 @@ public class EnemyTeamControl : MonoBehaviour {
 
     void Start() {
         enemyTeam = GetComponent<TeamManager>();
+        if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI)
+            this.enabled = false;
     }
 
     void FixedUpdate() {

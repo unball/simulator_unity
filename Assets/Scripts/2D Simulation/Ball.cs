@@ -13,6 +13,11 @@ public class Ball : MonoBehaviour {
         instance = this;
     }
 
+    void Start() {
+        if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI)
+            GetComponent<CircleCollider2D>().enabled = false;;
+    }
+
     void Update() {
         if (Pause.instance.isPaused) {
             CheckInput();
