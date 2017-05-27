@@ -16,6 +16,10 @@ public class MainMenuOvermind : MonoBehaviour {
         SetPlayerPrefsAndLoadSimulationScene(true);
     }
 
+    public void OpenConfigMenu() {
+        SceneManager.LoadScene("ConfigMenu");
+    }
+
     private void SetPlayerPrefsAndLoadSimulationScene(bool isOnGUIMode) {
         PlayerPrefs.SetInt("AlliedRobotAmount", allies.value);
         PlayerPrefs.SetInt("EnemyRobotAmount", enemies.value);

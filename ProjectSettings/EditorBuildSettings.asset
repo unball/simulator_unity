@@ -10,4 +10,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
+    path: Assets/Scenes/ConfigMenu.unity
+  - enabled: 1
     path: Assets/Scenes/Simulation.unity
