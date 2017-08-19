@@ -6,7 +6,7 @@ public class Pause : MonoBehaviour {
 
     public ROSPublisher keyboardMessagePublisher;
 
-	public static Pause instance { get; private set; }
+    public static Pause instance { get; private set; }
 
     public bool isPaused { get; private set; }
 

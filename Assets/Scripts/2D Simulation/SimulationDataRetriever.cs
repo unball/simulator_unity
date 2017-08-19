@@ -2,16 +2,18 @@
 
 public class SimulationDataRetriever : MonoBehaviour {
 
-	public static SimulationDataRetriever instance { get; set; }
+    public static SimulationDataRetriever instance { get; set; }
 
     public int alliedRobotAmount { get; private set; }
     public int enemyRobotAmount { get; private set; }
     public SimulationMode simulationMode { get; private set; }
+    public PauseMode pauseMode { get; private set; }
 
     void Awake() {
         SetupSingleton();
         LoadRobotAmount();
         LoadSimulationMode();
+        LoadPauseBehaviour();
     }
 
     private void SetupSingleton() {
@@ -35,9 +37,19 @@ public class SimulationDataRetriever : MonoBehaviour {
         int isOnGUIMode = PlayerPrefs.GetInt("GUIMode");
         simulationMode = isOnGUIMode == 0 ? SimulationMode.SIMULATION : SimulationMode.GUI;
     }
+
+    private void LoadPauseBehaviour() {
+        int pauseMode = PlayerPrefs.GetInt("PauseBehaviour");
+        this.pauseMode = pauseMode == 0 ? PauseMode.MESSAGE_ONLY : PauseMode.FORCE_STOP;
+    }
 }
 
 public enum SimulationMode {
     SIMULATION,
     GUI
+}
+
+public enum PauseMode {
+    MESSAGE_ONLY,
+    FORCE_STOP
 }

@@ -6,6 +6,7 @@ public class RobotVelocityControl : MonoBehaviour {
     public float angularVelocity;
 
     private Rigidbody2D rigidBody;
+    private bool check_pause;
 
     void Start() {
         if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI) {
@@ -13,11 +14,18 @@ public class RobotVelocityControl : MonoBehaviour {
             GetComponent<Collider2D>().enabled = false;
         }
         rigidBody = GetComponent<Rigidbody2D>();
+        check_pause = SimulationDataRetriever.instance.pauseMode == PauseMode.FORCE_STOP;
     }
 
     void FixedUpdate() {
-        ApplyLinearVelocity(linearVelocity);
-        ApplyAngularVelocity(angularVelocity);
+        if (check_pause && Pause.instance.isPaused) {
+            ApplyLinearVelocity(0f);
+            ApplyAngularVelocity(0f);
+        }
+        else {
+            ApplyLinearVelocity(linearVelocity);
+            ApplyAngularVelocity(angularVelocity);
+        }
     }
 
     private void ApplyLinearVelocity(float velocity) {

@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Send Message
+    - m_Text: Message Only
       m_Image: {fileID: 0}
     - m_Text: Force Stop
       m_Image: {fileID: 0}
@@ -2966,7 +2966,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Send Message
+  m_Text: Message Only
 --- !u!222 &1901074709
 CanvasRenderer:
   m_ObjectHideFlags: 0
