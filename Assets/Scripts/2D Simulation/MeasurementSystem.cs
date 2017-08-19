@@ -64,13 +64,20 @@ public class MeasurementSystem : MonoBehaviour {
         JSONObject robotThetaArray = new JSONObject(JSONObject.Type.ARRAY);
         int i;
         for (i = 0; i < SimulationDataRetriever.instance.alliedRobotAmount; ++i)
-            robotThetaArray.Add(alliedTeam.robotBodyList[i].rotation.eulerAngles.z * Mathf.Deg2Rad);
+            robotThetaArray.Add(convertThetaFormat(alliedTeam.robotBodyList[i].rotation.eulerAngles.z * Mathf.Deg2Rad));
         for (; i < 3; ++i)
             robotThetaArray.Add(0f);
         for (i = 0; i < SimulationDataRetriever.instance.enemyRobotAmount; ++i)
-            robotThetaArray.Add(enemyTeam.robotBodyList[i].rotation.eulerAngles.z * Mathf.Deg2Rad);
+            robotThetaArray.Add(convertThetaFormat(enemyTeam.robotBodyList[i].rotation.eulerAngles.z * Mathf.Deg2Rad));
         for (; i < 3; ++i)
             robotThetaArray.Add(0f);
         return robotThetaArray;
+    }
+
+    /// Converts theta from 0:2*pi to -pi:pi
+    private float convertThetaFormat(float angle) {
+        if (angle > Mathf.PI)
+            angle = angle - 2*Mathf.PI;
+        return angle;
     }
 }
