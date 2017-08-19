@@ -32,6 +32,7 @@ All measurements are received and transmitted according to the [International Sy
 
 ## Measurement conventions
 
-1 Unity unit = 0.1 metres = 100 pixels
+1 Unity unit = 0.1 metres = 100 pixels  
+Robot angles are sent in -pi:pi range
 
 Developed and maintained by [Gabriel Naves](https://github.com/gabrielnaves)
