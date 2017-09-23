@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topic: measurement_system_topic
-  messageType: unball/MeasurementSystemMessage
+  messageType: measurement_system/measurement_msg
 --- !u!4 &1090146391
 Transform:
   m_ObjectHideFlags: 0
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topic: measurement_system_topic
-  messageType: unball/MeasurementSystemMessage
+  messageType: measurement_system/measurement_msg
 --- !u!4 &1424169356
 Transform:
   m_ObjectHideFlags: 0
