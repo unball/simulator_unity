@@ -32,3 +32,5 @@ sysinfo.txt
 # Sublime workspace settings
 *.sublime-workspace
 *.sublime-project
+
+\.vscode/

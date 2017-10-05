@@ -6,16 +6,20 @@ public class MeasurementSystem : MonoBehaviour {
 
     public TeamManager alliedTeam;
     public TeamManager enemyTeam;
+    public bool publishAsVision;
 
     private ROSPublisher publisher;
 
     void Start() {
-        if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI) {
+        publisher = GetComponent<ROSPublisher>();
+        if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI)
             this.enabled = false;
-        }
-        else {
-            publisher = GetComponent<ROSPublisher>();
-        }
+        if (publishAsVision &&
+            SimulationDataRetriever.instance.publishingTopic == PublishingTopic.MEASUREMENT)
+            this.enabled = false;
+        if (!publishAsVision &&
+            SimulationDataRetriever.instance.publishingTopic == PublishingTopic.VISION)
+            this.enabled = false;
     }
 
     void FixedUpdate () {

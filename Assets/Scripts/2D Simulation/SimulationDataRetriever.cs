@@ -8,12 +8,14 @@ public class SimulationDataRetriever : MonoBehaviour {
     public int enemyRobotAmount { get; private set; }
     public SimulationMode simulationMode { get; private set; }
     public PauseMode pauseMode { get; private set; }
+    public PublishingTopic publishingTopic { get; private set; }
 
     void Awake() {
         SetupSingleton();
         LoadRobotAmount();
         LoadSimulationMode();
         LoadPauseBehaviour();
+        LoadPublishingTopic();
     }
 
     private void SetupSingleton() {
@@ -42,6 +44,14 @@ public class SimulationDataRetriever : MonoBehaviour {
         int pauseMode = PlayerPrefs.GetInt("PauseBehaviour");
         this.pauseMode = pauseMode == 0 ? PauseMode.MESSAGE_ONLY : PauseMode.FORCE_STOP;
     }
+
+    private void LoadPublishingTopic() {
+        int publishingTopic = PlayerPrefs.GetInt("PublishingTopic");
+        if (publishingTopic == 0)
+            this.publishingTopic = PublishingTopic.MEASUREMENT;
+        else
+            this.publishingTopic = PublishingTopic.VISION;
+    }
 }
 
 public enum SimulationMode {
@@ -52,4 +62,9 @@ public enum SimulationMode {
 public enum PauseMode {
     MESSAGE_ONLY,
     FORCE_STOP
+}
+
+public enum PublishingTopic {
+    MEASUREMENT,
+    VISION
 }
