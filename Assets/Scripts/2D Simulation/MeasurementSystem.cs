@@ -29,6 +29,9 @@ public class MeasurementSystem : MonoBehaviour {
         measurementMessage.AddField("x", MakeXPosArray());
         measurementMessage.AddField("y", MakeYPosArray());
         measurementMessage.AddField("th", MakeThetaArray());
+        if (publishAsVision &&
+            SimulationDataRetriever.instance.publishingTopic == PublishingTopic.VISION)
+            measurementMessage.AddField("found", MakeFoundArray());
         measurementMessage.AddField("ball_x", Ball.instance.transform.position.x * 0.1f);
         measurementMessage.AddField("ball_y", Ball.instance.transform.position.y * 0.1f);
         publisher.PublishMessage(measurementMessage);
@@ -76,6 +79,13 @@ public class MeasurementSystem : MonoBehaviour {
         for (; i < 3; ++i)
             robotThetaArray.Add(0f);
         return robotThetaArray;
+    }
+
+    private JSONObject MakeFoundArray() {
+        JSONObject robotFoundAray = new JSONObject(JSONObject.Type.ARRAY);
+        for (int i = 0; i < 6; ++i)
+            robotFoundAray.Add(true);
+        return robotFoundAray;
     }
 
     /// Converts theta from 0:2*pi to -pi:pi
