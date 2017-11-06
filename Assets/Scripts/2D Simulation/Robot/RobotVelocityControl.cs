@@ -13,7 +13,7 @@ public class RobotVelocityControl : MonoBehaviour {
             if (SimulationDataRetriever.instance.ballBehaviour == BallGUIBehaviour.PLOT)
                 GetComponent<Collider2D>().enabled = false;
             else
-                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                gameObject.layer = 9;
             this.enabled = false;
         }
         rigidBody = GetComponent<Rigidbody2D>();
