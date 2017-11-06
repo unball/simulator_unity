@@ -15,7 +15,12 @@ public class Ball : MonoBehaviour {
 
     void Start() {
         if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI)
-            GetComponent<CircleCollider2D>().enabled = false;;
+            SetBallGUIMode();
+    }
+
+    void SetBallGUIMode() {
+        if (SimulationDataRetriever.instance.ballBehaviour == BallGUIBehaviour.PLOT)
+            GetComponent<CircleCollider2D>().enabled = false;
     }
 
     void Update() {

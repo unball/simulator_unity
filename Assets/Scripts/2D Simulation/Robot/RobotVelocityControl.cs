@@ -10,8 +10,11 @@ public class RobotVelocityControl : MonoBehaviour {
 
     void Start() {
         if (SimulationDataRetriever.instance.simulationMode == SimulationMode.GUI) {
+            if (SimulationDataRetriever.instance.ballBehaviour == BallGUIBehaviour.PLOT)
+                GetComponent<Collider2D>().enabled = false;
+            else
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             this.enabled = false;
-            GetComponent<Collider2D>().enabled = false;
         }
         rigidBody = GetComponent<Rigidbody2D>();
         check_pause = SimulationDataRetriever.instance.pauseMode == PauseMode.FORCE_STOP;

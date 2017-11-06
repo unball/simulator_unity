@@ -44,6 +44,7 @@ public class MeasurementSubscriber : MonoBehaviour {
                 MoveRotation(thetaArr[i+3].n * Mathf.Rad2Deg);
         }
 
-        Ball.instance.GetComponent<Rigidbody2D>().MovePosition(new Vector2(ballX.n * 10f, ballY.n * 10f));
+        if (SimulationDataRetriever.instance.ballBehaviour == BallGUIBehaviour.PLOT)
+            Ball.instance.GetComponent<Rigidbody2D>().MovePosition(new Vector2(ballX.n * 10f, ballY.n * 10f));
     }
 }

@@ -9,6 +9,7 @@ public class SimulationDataRetriever : MonoBehaviour {
     public SimulationMode simulationMode { get; private set; }
     public PauseMode pauseMode { get; private set; }
     public PublishingTopic publishingTopic { get; private set; }
+    public BallGUIBehaviour ballBehaviour { get; private set; }
 
     void Awake() {
         SetupSingleton();
@@ -16,6 +17,7 @@ public class SimulationDataRetriever : MonoBehaviour {
         LoadSimulationMode();
         LoadPauseBehaviour();
         LoadPublishingTopic();
+        LoadBallBehaviour();
     }
 
     private void SetupSingleton() {
@@ -52,6 +54,14 @@ public class SimulationDataRetriever : MonoBehaviour {
         else
             this.publishingTopic = PublishingTopic.VISION;
     }
+
+    private void LoadBallBehaviour() {
+        int ballMode = PlayerPrefs.GetInt("BallGUIBehaviour");
+        if (ballMode == 0)
+            this.ballBehaviour = BallGUIBehaviour.PLOT;
+        else
+            this.ballBehaviour = BallGUIBehaviour.VIRTUAL;
+    }
 }
 
 public enum SimulationMode {
@@ -67,4 +77,9 @@ public enum PauseMode {
 public enum PublishingTopic {
     MEASUREMENT,
     VISION
+}
+
+public enum BallGUIBehaviour {
+    PLOT,
+    VIRTUAL
 }
