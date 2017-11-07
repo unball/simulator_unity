@@ -24,10 +24,9 @@ public class Ball : MonoBehaviour {
     }
 
     void Update() {
-        if (Pause.instance.isPaused) {
-            CheckInput();
+        CheckInput();
+        if (Pause.instance.isPaused)
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
     }
 
     private void CheckInput() {
